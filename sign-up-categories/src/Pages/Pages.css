@@ -1,0 +1,16 @@
+.reg-form-container {
+  display: block;
+}
+
+.reg-form-title {
+  font-size: 2rem !important;
+  font-weight: 700;
+  padding-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .reg-form-title {
+    font-size: 1.1rem;
+  }
+}
