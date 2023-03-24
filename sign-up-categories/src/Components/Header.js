@@ -36,6 +36,7 @@ function Header(props) {
     <div className="navigation-container">
       <div className="navigation">
         <Drawer
+          onSubmit={props.onSubmit}
           categories={props.categories}
           toggleDrawer={toggleDrawer}
           state={state}

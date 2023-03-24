@@ -16,7 +16,6 @@ function Input(props) {
         name={name}
         {...rest}
       />
-      {/* <ErrorMessage name={name} component={TextError} /> */}
     </div>
   );
 }

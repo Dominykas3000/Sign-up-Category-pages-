@@ -13,16 +13,18 @@ function Select(props) {
       </label> */}
       <Typography>{label} </Typography>
       <br />
-      <Field as="select" id={name} name={name} {...rest}>
-        {options.map((option) => {
-          return (
-            <option key={option.key} value={option.value}>
-              {option.key}
-            </option>
-          );
-        })}
-      </Field>
-      <ErrorMessage name={name} component={TextError} />
+      <div className="box">
+        <Field as="select" title="select" id={name} name={name} {...rest}>
+          {options.map((option) => {
+            return (
+              <option key={option.key} value={option.value}>
+                {option.key}
+              </option>
+            );
+          })}
+        </Field>
+        <ErrorMessage name={name} component={TextError} />
+      </div>
     </div>
   );
 }

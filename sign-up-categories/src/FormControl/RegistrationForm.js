@@ -7,14 +7,12 @@ import { Button } from "@mui/material";
 import "./Form.css";
 function RegistrationForm(props) {
   const genderOptions = [
-    { key: "Select Your Gender", value: "" },
     { key: "Female", value: "female" },
     { key: "Male", value: "male" },
     { key: "Prefer not to say", value: "non-disclosed" },
   ];
 
   const SeniorityOptions = [
-    { key: "Select Your Seniority", value: "" },
     { key: "Intern", value: "Intern" },
     { key: "Junior", value: "Junior" },
     { key: "Mid", value: "Mid" },
@@ -42,9 +40,13 @@ function RegistrationForm(props) {
       .required("Required"),
     name: Yup.string().required("Required"),
     lastName: Yup.string().required("Required"),
-    age: Yup.string().required("Required"),
+    age: Yup.number()
+      .required("Required")
+      .min(18, "Employee must be at least 18 years old")
+      .max(100, "Employee must be at most 100 years old"),
     gender: Yup.string().required("Required"),
     category: Yup.string().required("Required"),
+    seniority: Yup.string().required("Required"),
   });
 
   return (
@@ -159,7 +161,7 @@ function RegistrationForm(props) {
                 height: "56px",
                 width: "50%",
                 borderRadius: "8px",
-                backgroundColor: "#3f51b5",
+                backgroundColor: "#6c5fc8",
                 color: "black",
               }}
               variant="contained"
