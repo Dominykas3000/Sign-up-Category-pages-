@@ -8,6 +8,7 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import * as React from "react";
 import { useState } from "react";
 import CreateCategoryForm from "./CreateCategoryForm";
+import Divider from "@mui/material/Divider";
 export default function SwipeableTemporaryDrawer(props) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -32,8 +33,8 @@ export default function SwipeableTemporaryDrawer(props) {
     >
       <List>
         {/* HomeButton */}
-        <ListItemButton>
-          <Typography variant="h5">Home</Typography>
+        <ListItemButton href="/">
+          <Typography variant="h5">Add New User</Typography>
         </ListItemButton>
         {/* New Category Button  */}
         <ListItemButton onClick={handleOpen}>
@@ -59,6 +60,7 @@ export default function SwipeableTemporaryDrawer(props) {
         </Modal>
 
         <Typography variant="h4">Categories:</Typography>
+        <Divider />
         {props.categories.map((category) => (
           <ListItemButton href={`/category/${category.key}`}>
             <Typography variant="h5">{category.key} </Typography>

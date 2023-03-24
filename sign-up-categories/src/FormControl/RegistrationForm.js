@@ -17,7 +17,6 @@ function RegistrationForm(props) {
     { key: "Junior", value: "Junior" },
     { key: "Mid", value: "Mid" },
     { key: "Senior", value: "Senior" },
-    { key: "Prefer not to say", value: "non-disclosed" },
   ];
 
   const initialValues = {

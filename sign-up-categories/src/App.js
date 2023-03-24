@@ -10,12 +10,12 @@ function App() {
     { key: "BackEnd", value: "BackEnd" },
     { key: "FullStack", value: "FullStack" },
   ];
-
+  const category =
+    JSON.parse(localStorage.getItem("categories")) || categoryOptions;
   const user = JSON.parse(localStorage.getItem("users")) || [];
-
   const [isSignUp, setSignup] = useState({ isSignUp: false });
   const [users, setUsers] = useState(user);
-  const [categories, setCategory] = useState(categoryOptions);
+  const [categories, setCategory] = useState(category);
 
   useEffect(() => {
     localStorage.setItem("categories", JSON.stringify(categories));
@@ -27,25 +27,32 @@ function App() {
   };
 
   const handleAddCategory = (category) => {
-    setCategory([...categories, category]);
+    let newCategory = { key: category.category, value: category.category };
+    setCategory([...categories, newCategory]);
   };
 
-  const onSubmitCategory = (values) => {
-    console.log("Form data", values);
+  const onSubmitCategory = (values, actions) => {
     console.log("Saved data", JSON.stringify(values));
     handleAddCategory(values);
+    actions.resetForm();
   };
   useEffect(() => {
     localStorage.setItem("users", JSON.stringify(users));
     console.log("users", users);
   }, [users]);
 
-  const onSubmit = (values) => {
+  useEffect(() => {
+    localStorage.setItem("categories", JSON.stringify(categories));
+    console.log("categories", categories);
+  }, [categories]);
+
+  const onSubmit = (values, actions) => {
     console.log("Form data", values);
     console.log("Saved data", JSON.stringify(values));
     handleCreateUser(values);
     setSignup({ isSignUp: true });
     console.log("isSignUp", isSignUp);
+    actions.resetForm();
   };
   useEffect(() => {
     console.log(localStorage.getItem("categories"));

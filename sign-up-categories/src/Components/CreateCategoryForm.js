@@ -5,9 +5,8 @@ import FormikControl from "../FormControl/FormikControl.js";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 function CreateCategoryForm(props) {
-  const { oldCat } = props;
   const initialValues = {
-    oldCat,
+    category: "",
   };
 
   const validationSchema = Yup.object({
@@ -16,10 +15,6 @@ function CreateCategoryForm(props) {
 
   return (
     <div>
-      {props.categories.map((category) => (
-        <Typography variant="h5">{category.key} </Typography>
-      ))}
-
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
