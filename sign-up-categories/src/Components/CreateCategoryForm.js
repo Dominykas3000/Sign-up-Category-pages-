@@ -3,7 +3,6 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikControl from "../FormControl/FormikControl.js";
 import { Button } from "@mui/material";
-import Typography from "@mui/material/Typography";
 function CreateCategoryForm(props) {
   const initialValues = {
     category: "",
@@ -49,7 +48,7 @@ function CreateCategoryForm(props) {
                     height: "60px",
                     width: "75%",
                     borderRadius: "8px",
-                    backgroundColor: "#6c5fc8",
+                    backgroundColor: "#f8445b",
                     color: "black",
                   }}
                   variant="contained"

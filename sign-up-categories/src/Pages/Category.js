@@ -2,6 +2,7 @@ import { Paper, Typography } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
 import Divider from "@mui/material/Divider";
+import "./Pages.css";
 function Category(props) {
   const { id } = useParams();
   const selectedCategory = props.categories.find(
@@ -14,12 +15,6 @@ function Category(props) {
 
   const filterBySeniority = (seniority) => {
     return filteredUsers.filter((user) => user.seniority === seniority);
-  };
-
-  const filterByPasswordLength = (seniority) => {
-    return filterBySeniority(seniority).filter(
-      (user) => user.password.length() >= 3
-    );
   };
 
   const SeniorityOptions = [
@@ -58,7 +53,7 @@ function Category(props) {
               padding: "10px",
               marginLeft: "10px",
               marginRight: "10px",
-              backgroundColor: "#e4e0e0e3",
+              backgroundColor: "#e8eae3",
               width: "100%",
             }}
           >
@@ -78,14 +73,29 @@ function Category(props) {
               >
                 {seniority.value}
               </Typography>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginTop: "20px",
+                  marginBottom: "20px",
+                }}
+              >
+                <Typography variant="h6" style={{}}>
+                  All {seniority.value} employees (Name, Last Name, Email):
+                </Typography>
+              </div>
               {filterBySeniority(seniority.value).map((user, index) => (
                 <div
                   key={index}
                   style={{
                     display: "flex",
+                    flexDirection: "row",
                     justifyContent: "space-between",
                     alignItems: "center",
                     marginBottom: "10px",
+                    margin: "20px",
                   }}
                 >
                   <Typography variant="h6">{user.name}</Typography>
@@ -94,7 +104,18 @@ function Category(props) {
                 </div>
               ))}
               <Divider />
-              <Typography variant="h6"> Strong Password: </Typography>
+              <Typography
+                variant="h6"
+                style={{
+                  textAlign: "center",
+                  marginTop: "20px",
+                  marginBottom: "20px",
+                }}
+              >
+                {seniority.value} employees with a{" "}
+                <span className="bold">Strong</span> password (Name, Last Name,
+                Password)
+              </Typography>
               {filterBySeniority(seniority.value).map((user, index) => (
                 <div key={index}>
                   {user.password.length > 3 && (
@@ -103,8 +124,11 @@ function Category(props) {
                         display: "flex",
                         justifyContent: "space-between",
                         alignItems: "center",
-                        
-                    }}>
+                        marginBottom: "10px",
+                        flexDirection: "row",
+                        margin: "20px",
+                      }}
+                    >
                       <Typography variant="h6">{user.name}</Typography>
                       <Typography variant="h6">{user.email}</Typography>
                       <Typography variant="h6">{user.password}</Typography>
@@ -112,16 +136,36 @@ function Category(props) {
                   )}
                 </div>
               ))}
-              <Typography variant="h6"> Weak Password: </Typography>
-
+              <Divider />
+              <Typography
+                variant="h6"
+                style={{
+                  textAlign: "center",
+                  marginTop: "20px",
+                  marginBottom: "20px",
+                }}
+              >
+                {seniority.value} employees with a{" "}
+                <span className="bold">Weak</span> password (Name, Last Name,
+                Password)
+              </Typography>
               {filterBySeniority(seniority.value).map((user, index) => (
                 <div key={index}>
                   {user.password.length <= 3 && (
-                    <>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        marginBottom: "10px",
+                        flexDirection: "row",
+                        margin: "20px",
+                      }}
+                    >
                       <Typography variant="h6">{user.name}</Typography>
                       <Typography variant="h6">{user.email}</Typography>
                       <Typography variant="h6">{user.password}</Typography>
-                    </>
+                    </div>
                   )}
                 </div>
               ))}

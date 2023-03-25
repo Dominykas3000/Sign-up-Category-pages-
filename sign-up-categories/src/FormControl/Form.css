@@ -15,14 +15,16 @@
   font-size: 14px;
   font-weight: bold;
 }
-.box {
-}
 
 .box select {
-  background-color: #6c5fc8;
+  background-color: #373833 ;
+  color: #e8eae3;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
   padding: 12px;
   width: 250px;
-  border: none;
+  border: 1px solid #373833;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
 
@@ -33,7 +35,7 @@
   line-height: 45px;
   color: rgba(255, 255, 255, 0.5);
   border: none;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #373833;
   pointer-events: auto;
 }
 
@@ -49,7 +51,7 @@
 }
 
 input[type="number"]::-webkit-inner-spin-button {
-  opacity: 1;
+  opacity: 0;
 }
 .select-container {
   display: "flex";

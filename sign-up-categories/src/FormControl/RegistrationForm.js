@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikControl from "./FormikControl.js";
-import { Button } from "@mui/material";
+import { Button, Paper } from "@mui/material";
 import "./Form.css";
 function RegistrationForm(props) {
   const genderOptions = [
@@ -49,130 +49,153 @@ function RegistrationForm(props) {
   });
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={props.onSubmit}
-    >
-      {(formik) => {
-        return (
-          <Form>
-            <div
-              style={{
-                margin: " 0 auto",
-                display: "flex",
-                justifyContent: "space-evenly",
-                flexWrap: "wrap",
-                alignContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Grid container columns={{ xs: 2, sm: 3 }}>
-                <Grid xs={1}>
-                  <FormikControl
-                    control="input"
-                    type="text"
-                    label="Name"
-                    name="name"
-                    variant="outlined"
-                    color="primary"
-                    fullWidth
-                  />
-                </Grid>
-                <Grid xs={1}>
-                  <FormikControl
-                    control="input"
-                    type="number"
-                    label="Age"
-                    name="age"
-                  />
-                </Grid>
-                <Grid xs={1}>
-                  <FormikControl
-                    control="input"
-                    type="password"
-                    label="Password"
-                    name="password"
-                  />
-                </Grid>
-                <Grid xs={1}>
-                  <FormikControl
-                    control="input"
-                    type="text"
-                    label="Last Name"
-                    name="lastName"
-                  />
-                </Grid>
-                <Grid xs={1}>
-                  <FormikControl
-                    control="input"
-                    type="email"
-                    label="Email"
-                    name="email"
-                  />
-                </Grid>
-
-                <Grid xs={1}>
-                  <FormikControl
-                    control="input"
-                    type="password"
-                    label="Confirm Password"
-                    name="confirmPassword"
-                  />
-                </Grid>
-              </Grid>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-evenly",
-                alignContent: "center",
-              }}
-            >
-              <FormikControl
-                control="select"
-                label="Gender"
-                name="gender"
-                options={genderOptions}
-              />
-
-              <FormikControl
-                control="select"
-                label="Seniority"
-                name="seniority"
-                options={SeniorityOptions}
-              />
-
-              <FormikControl
-                control="select"
-                label="Category"
-                name="category"
-                options={props.categories}
-              />
-            </div>
-            <Button
-              style={{
-                margin: "0 auto",
-                display: "block",
-                marginTop: "16px",
-                boxShadow: "none",
-                size: "large",
-                height: "56px",
-                width: "50%",
-                borderRadius: "8px",
-                backgroundColor: "#6c5fc8",
-                color: "black",
-              }}
-              variant="contained"
-              type="submit"
-              disabled={!formik.isValid}
-            >
-              Add new Employee
-            </Button>
-          </Form>
-        );
+    <Paper
+      variant="outlined"
+      elevation={24}
+      sx={{
+        margin: "0 auto",
+        backgroundColor: "#e8eae3",
+        width: "80%",
+        border: "1px solid #373833",
+        borderRadius: "8px",
+        boxShadow: "1px 8px 120px 31px rgba(55,56,51,0.30)",
       }}
-    </Formik>
+    >
+      <div
+        style={{
+          margin: "16px",
+        }}
+      >
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={props.onSubmit}
+        >
+          {(formik) => {
+            return (
+              <Form>
+                <div
+                  style={{
+                    margin: " 0 auto",
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    flexWrap: "wrap",
+                    alignContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Grid container columns={{ xs: 2, sm: 2 }}>
+                    <Grid xs={1}>
+                      <FormikControl
+                        control="input"
+                        type="text"
+                        label="Name"
+                        name="name"
+                        variant="outlined"
+                        color="primary"
+                        fullWidth
+                      />
+                    </Grid>
+                    <Grid xs={1}>
+                      <FormikControl
+                        control="input"
+                        type="text"
+                        label="Last Name"
+                        name="lastName"
+                      />
+                    </Grid>
+                    <Grid xs={1}>
+                      <FormikControl
+                        control="input"
+                        type="number"
+                        label="Age"
+                        name="age"
+                      />
+                    </Grid>
+
+                    <Grid xs={1}>
+                      <FormikControl
+                        control="input"
+                        type="email"
+                        label="Email"
+                        name="email"
+                      />
+                    </Grid>
+
+                    <Grid xs={1}>
+                      <FormikControl
+                        control="input"
+                        type="password"
+                        label="Password"
+                        name="password"
+                      />
+                    </Grid>
+
+                    <Grid xs={1}>
+                      <FormikControl
+                        control="input"
+                        type="password"
+                        label="Confirm Password"
+                        name="confirmPassword"
+                      />
+                    </Grid>
+                  </Grid>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-evenly",
+                    alignItems: "center",
+                    alignContent: "center",
+                  }}
+                >
+                  <FormikControl
+                    control="select"
+                    label="Gender"
+                    name="gender"
+                    options={genderOptions}
+                  />
+
+                  <FormikControl
+                    control="select"
+                    label="Seniority"
+                    name="seniority"
+                    options={SeniorityOptions}
+                  />
+
+                  <FormikControl
+                    control="select"
+                    label="Category"
+                    name="category"
+                    options={props.categories}
+                  />
+                </div>
+                <Button
+                  style={{
+                    margin: "0 auto",
+                    display: "block",
+                    marginTop: "16px",
+                    boxShadow: "none",
+                    size: "large",
+                    height: "56px",
+                    width: "50%",
+                    borderRadius: "8px",
+                    backgroundColor: "#f8445b",
+                    color: "black",
+                  }}
+                  variant="contained"
+                  type="submit"
+                  disabled={!formik.isValid}
+                >
+                  Add new Employee
+                </Button>
+              </Form>
+            );
+          }}
+        </Formik>
+      </div>
+    </Paper>
   );
 }
 

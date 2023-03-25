@@ -2,7 +2,7 @@ import React from "react";
 import "./ComponentStyles.css";
 import BrowserUpdatedIcon from "@mui/icons-material/BrowserUpdated";
 import Drawer from "./Drawer";
-import { IconButton, Tooltip } from "@mui/material";
+import { IconButton, Tooltip, Typography } from "@mui/material";
 function Header(props) {
   const [state, setState] = React.useState({
     left: false,
@@ -41,12 +41,20 @@ function Header(props) {
           toggleDrawer={toggleDrawer}
           state={state}
         />
-        <h2 className="nav-label">Employee Management System </h2>
+        <Typography
+          variant="h4"
+          style={{
+            color: "#e8eae3",
+          }}
+        >
+          Employee Management System{" "}
+        </Typography>
         <Tooltip title="Download Data">
           <IconButton onClick={onClickDownloadData}>
             <BrowserUpdatedIcon
+              fontSize="large"
               sx={{
-                color: "black",
+                color: "#E8EAE3",
               }}
             />
           </IconButton>

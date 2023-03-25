@@ -6,8 +6,8 @@ import Header from "./Components/Header";
 import { Route, Routes } from "react-router-dom";
 function App() {
   const categoryOptions = [
-    { key: "FrontEnd", value: "FrontEnd" },
-    { key: "BackEnd", value: "BackEnd" },
+    { key: "Front End", value: "Front End" },
+    { key: "Back End", value: "Back End" },
     { key: "FullStack", value: "FullStack" },
   ];
   const category =

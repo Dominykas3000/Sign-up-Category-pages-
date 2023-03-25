@@ -8,11 +8,12 @@ function Select(props) {
   const { label, name, options, ...rest } = props;
   return (
     <div className="form-control">
-      {/* <label className="Box-label" htmlFor={name}>
-        {label}
-      </label> */}
-      <Typography>{label} </Typography>
-      <br />
+      <Typography variant="h6"
+        style={{
+          margin: "5px",
+          textAlign: "center"
+      }}
+      >{label} </Typography>
       <div className="box">
         <Field as="select" title="select" id={name} name={name} {...rest}>
           {options.map((option) => {

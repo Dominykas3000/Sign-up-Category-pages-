@@ -1,10 +1,9 @@
 .navigation-container {
-  background-color: #9921e8;
-  background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
+  background-color: #373833;
   color: #fff;
   display: flex;
   width: 100%;
-  height: 60px;
+  height: 90px;
 }
 .navigation {
   display: flex;
@@ -17,7 +16,7 @@
 .nav-label {
   font-size: 1.5rem;
   font-weight: 700;
-  color: black;
+  color: #e8eae3;
 }
 @media screen and (max-width: 768px) {
   .navigation-container {

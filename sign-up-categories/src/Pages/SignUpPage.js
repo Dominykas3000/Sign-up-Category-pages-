@@ -7,12 +7,13 @@ export default function SignUpPage(props) {
   return (
     <div className="reg-form-container">
       <Typography
+        variant="h2"
         className="reg-form-title"
         sx={{
           color: "black",
         }}
       >
-        Sign up a new employee and give him a category to be placed in
+        Sign up a new employee and give a category (department) to be placed in
       </Typography>
       <div
         style={{

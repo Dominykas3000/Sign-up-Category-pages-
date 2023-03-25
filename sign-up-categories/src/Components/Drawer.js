@@ -6,6 +6,9 @@ import ListItemButton from "@mui/material/ListItemButton";
 import Modal from "@mui/material/Modal";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import * as React from "react";
+import CircleIcon from "@mui/icons-material/Circle";
+import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRightTwoTone";
+import StartIcon from "@mui/icons-material/Start";
 import { useState } from "react";
 import CreateCategoryForm from "./CreateCategoryForm";
 import Divider from "@mui/material/Divider";
@@ -18,8 +21,9 @@ export default function SwipeableTemporaryDrawer(props) {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "70%",
-    bgcolor: "background.paper",
+    width: "50%",
+    borderRadius: "16px",
+    bgcolor: "#e8eae3",
     border: "2px solid #000",
     boxShadow: 24,
     p: 4,
@@ -27,6 +31,10 @@ export default function SwipeableTemporaryDrawer(props) {
 
   const list = (anchor) => (
     <Box
+      sx={{
+        backgroundColor: "#e8eae3",
+        height: "100%",
+      }}
       role="presentation"
       onClick={props.toggleDrawer(anchor, false)}
       onKeyDown={props.toggleDrawer(anchor, false)}
@@ -34,11 +42,13 @@ export default function SwipeableTemporaryDrawer(props) {
       <List>
         {/* HomeButton */}
         <ListItemButton href="/">
+          <StartIcon />
           <Typography variant="h5">Add New User</Typography>
         </ListItemButton>
         {/* New Category Button  */}
         <ListItemButton onClick={handleOpen}>
-          <Typography variant="h5"> Create New Category </Typography>
+          <StartIcon />
+          <Typography variant="h5"> Create New Department </Typography>
         </ListItemButton>
         <Modal open={open} onClose={handleClose}>
           <Box sx={style}>
@@ -50,7 +60,11 @@ export default function SwipeableTemporaryDrawer(props) {
                 flexDirection: "column",
               }}
             >
-              <Typography variant="h4">Create New Category</Typography>
+              <Typography variant="h4"
+                style={{
+                marginBottom: "16px",
+              }}
+              >Create New Department</Typography>
               <CreateCategoryForm
                 categories={props.categories}
                 onSubmit={props.onSubmit}
@@ -58,12 +72,29 @@ export default function SwipeableTemporaryDrawer(props) {
             </div>
           </Box>
         </Modal>
-
-        <Typography variant="h4">Categories:</Typography>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "row",
+          }}
+        >
+          <CircleIcon fontSize="small" />
+          <Typography variant="h5">Departments:</Typography>
+        </div>
         <Divider />
         {props.categories.map((category) => (
           <ListItemButton href={`/category/${category.key}`}>
-            <Typography variant="h5">{category.key} </Typography>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <KeyboardArrowRightTwoToneIcon />
+              <Typography variant="h5">{category.key} </Typography>
+            </div>
           </ListItemButton>
         ))}
       </List>
@@ -74,12 +105,16 @@ export default function SwipeableTemporaryDrawer(props) {
     <div>
       {Object.keys(Object.freeze(["left"])).map((anchor) => (
         <React.Fragment key={anchor}>
-          <Tooltip title="Categories Menu">
-            <IconButton onClick={props.toggleDrawer(anchor, true)}>
+          <Tooltip title="Menu">
+            <IconButton
+              fontSize="large"
+              onClick={props.toggleDrawer(anchor, true)}
+            >
               <ListIcon
                 sx={{
-                  color: "black",
+                  color: "#E8EAE3",
                 }}
+                fontSize="large"
               />
             </IconButton>
           </Tooltip>
