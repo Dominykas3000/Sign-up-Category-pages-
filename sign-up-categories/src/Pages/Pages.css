@@ -13,8 +13,16 @@
   .reg-form-title {
     font-size: 1.1rem;
   }
+  .paper-container {
+    padding: 0;
+    margin: 8px;
+  }
 }
 
-.bold{
+.bold {
   font-weight: bold;
+}
+.paper-container {
+  display: block;
+  padding: 16px;
 }

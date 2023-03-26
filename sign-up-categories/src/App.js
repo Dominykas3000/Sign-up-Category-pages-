@@ -51,7 +51,6 @@ function App() {
     console.log("Saved data", JSON.stringify(values));
     handleCreateUser(values);
     setSignup({ isSignUp: true });
-    console.log("isSignUp", isSignUp);
     actions.resetForm();
   };
   useEffect(() => {

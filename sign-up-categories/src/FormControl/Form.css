@@ -10,14 +10,9 @@
   font-size: 14px;
   margin-bottom: 10px;
 }
-.Box-label {
-  display: flex;
-  font-size: 14px;
-  font-weight: bold;
-}
 
 .box select {
-  background-color: #373833 ;
+  background-color: #373833;
   color: #e8eae3;
   text-align: center;
   cursor: pointer;

@@ -1,17 +1,17 @@
+import CircleIcon from "@mui/icons-material/Circle";
+import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRightTwoTone";
 import ListIcon from "@mui/icons-material/List";
+import StartIcon from "@mui/icons-material/Start";
 import { IconButton, Tooltip, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import Modal from "@mui/material/Modal";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import * as React from "react";
-import CircleIcon from "@mui/icons-material/Circle";
-import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRightTwoTone";
-import StartIcon from "@mui/icons-material/Start";
 import { useState } from "react";
 import CreateCategoryForm from "./CreateCategoryForm";
-import Divider from "@mui/material/Divider";
 export default function SwipeableTemporaryDrawer(props) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -60,11 +60,14 @@ export default function SwipeableTemporaryDrawer(props) {
                 flexDirection: "column",
               }}
             >
-              <Typography variant="h4"
+              <Typography
+                variant="h4"
                 style={{
-                marginBottom: "16px",
-              }}
-              >Create New Department</Typography>
+                  marginBottom: "16px",
+                }}
+              >
+                Create New Department
+              </Typography>
               <CreateCategoryForm
                 categories={props.categories}
                 onSubmit={props.onSubmit}
@@ -84,7 +87,7 @@ export default function SwipeableTemporaryDrawer(props) {
         </div>
         <Divider />
         {props.categories.map((category) => (
-          <ListItemButton href={`/category/${category.key}`}>
+          <ListItemButton key={category.key} href={`/category/${category.key}`}>
             <div
               style={{
                 display: "flex",

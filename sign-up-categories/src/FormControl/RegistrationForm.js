@@ -4,6 +4,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikControl from "./FormikControl.js";
 import { Button, Paper } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
 import "./Form.css";
 function RegistrationForm(props) {
   const genderOptions = [
@@ -48,14 +49,29 @@ function RegistrationForm(props) {
     seniority: Yup.string().required("Required"),
   });
 
+  let theme = createTheme();
+
+  theme.typography.h3 = {
+    fontSize: "1.5rem",
+    "@media (min-width:800px)": {
+      fontSize: "2.5rem",
+    },
+    "@media(max-width: 600px) ": {
+      fontSize: "1rem",
+    },
+
+    [theme.breakpoints.up("md")]: {
+      fontSize: "2.5rem",
+    },
+  };
+
   return (
     <Paper
       variant="outlined"
       elevation={24}
       sx={{
-        margin: "0 auto",
         backgroundColor: "#e8eae3",
-        width: "80%",
+        width: "100%",
         border: "1px solid #373833",
         borderRadius: "8px",
         boxShadow: "1px 8px 120px 31px rgba(55,56,51,0.30)",
@@ -166,7 +182,7 @@ function RegistrationForm(props) {
 
                   <FormikControl
                     control="select"
-                    label="Category"
+                    label="Department"
                     name="category"
                     options={props.categories}
                   />

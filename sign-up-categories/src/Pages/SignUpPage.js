@@ -13,14 +13,9 @@ export default function SignUpPage(props) {
           color: "black",
         }}
       >
-        Sign up a new employee and give a category (department) to be placed in
+        Sign up a new employee 
       </Typography>
-      <div
-        style={{
-          paddingTop: "1.5em",
-          margin: "15px",
-        }}
-      >
+      <div className="paper-container">
         <RegistrationForm
           onSubmit={props.onSubmit}
           categories={props.categories}

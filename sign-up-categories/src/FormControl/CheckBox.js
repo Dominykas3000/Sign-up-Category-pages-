@@ -7,7 +7,7 @@ function CheckBox(props) {
   const { label, name, options, ...rest } = props;
   return (
     <div className="form-control">
-      {/* <label className="Box-label">{label}</label> */}
+      
       <Typography>{label} </Typography>
 
       <FormControl>
@@ -23,14 +23,13 @@ function CheckBox(props) {
                         type="checkbox"
                         id={option.value}
                         {...field}
-                        // label={option.key}
+                      
                         value={option.value}
                         checked={field.value.includes(option.value)}
                       />
                     }
                     label={option.key}
                   />
-                  {/* <label htmlFor={option.value}>{option.key}</label> */}
                 </React.Fragment>
               );
             });

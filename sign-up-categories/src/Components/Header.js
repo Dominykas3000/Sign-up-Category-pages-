@@ -1,12 +1,30 @@
+import { ThemeProvider } from "@emotion/react";
+import BrowserUpdatedIcon from "@mui/icons-material/BrowserUpdated";
+import { IconButton, Tooltip, Typography } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
 import React from "react";
 import "./ComponentStyles.css";
-import BrowserUpdatedIcon from "@mui/icons-material/BrowserUpdated";
 import Drawer from "./Drawer";
-import { IconButton, Tooltip, Typography } from "@mui/material";
 function Header(props) {
   const [state, setState] = React.useState({
     left: false,
   });
+
+  let theme = createTheme();
+
+  theme.typography.h3 = {
+    fontSize: "1.8rem",
+    "@media (min-width:800px)": {
+      fontSize: "2.5rem",
+    },
+    "@media(max-width: 600px) ": {
+      fontSize: "1rem",
+    },
+
+    [theme.breakpoints.up("md")]: {
+      fontSize: "2.5rem",
+    },
+  };
 
   const onClickDownloadData = () => {
     const users = JSON.parse(localStorage.getItem("users"));
@@ -41,14 +59,16 @@ function Header(props) {
           toggleDrawer={toggleDrawer}
           state={state}
         />
-        <Typography
-          variant="h4"
-          style={{
-            color: "#e8eae3",
-          }}
-        >
-          Employee Management System{" "}
-        </Typography>
+        <ThemeProvider theme={theme}>
+          <Typography
+            variant="h3"
+            style={{
+              color: "#e8eae3",
+            }}
+          >
+            Employee Management System
+          </Typography>
+        </ThemeProvider>
         <Tooltip title="Download Data">
           <IconButton onClick={onClickDownloadData}>
             <BrowserUpdatedIcon
